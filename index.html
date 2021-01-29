@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
+    <style media="screen">
+    body{
+      background: #1a1a1a;
+    }
+
+    .container{
+      height:75vh;
+      width:90vw;
+      background-color: #242424;
+      position: absolute;
+      top:50%;
+      left:50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .writable{
+      height:90%;
+      width: 85%;
+      background-color: #333;
+      color:white;
+      position: absolute;
+      top:50%;
+      left:10px;
+      transform: translate(0%, -50%);
+      padding:15px;
+      text-transform: capitalize;
+    }
+    *{outline: 0;}
+    pre{
+    text-align:center;
+    }
+    th{
+      text-transform: uppercase;
+      border: 1px solid #242424;
+      padding: 8px;
+      background-color: #4CAF50;
+    }
+    td{
+      text-align: center;
+      border: 1px solid #242424;
+      padding: 8px;
+    }
+    tr:hover {background-color: #242424;}
+    tr:nth-child(even){background-color: #2a2a2a;}
+    .sidebar{
+      width: 9%;
+      height: 90%;
+      background-color: #333;
+      position: absolute;
+      top:50%;
+      left:98%;
+      transform: translate(-100%, -50%);
+    }
+    button{
+      height:45px;
+      width: 100%;
+      background: #2a2a2a;
+      border:0;
+      color: white;
+      cursor: pointer;
+    }
+    </style>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      if (!("Notification" in window)) {
+        alert("This browser does not support desktop notification");
+      }
+
+      // Let's check whether notification permissions have already been granted
+      else if (Notification.permission === "granted") {
+        // If it's okay let's create a notification
+        var notification = new Notification("Hello, hello, notifications check! Notifications check!");
+      }
+
+      // Otherwise, we need to ask the user for permission
+      else if (Notification.permission !== "denied") {
+        Notification.requestPermission().then(function (permission) {
+          // If the user accepts, let's create a notification
+          if (permission === "granted") {
+            var notification = new Notification("Hello, hello, notifications check! Notifications check!");
+          }
+        });
+      }
+      var dt = new Date();
+      var time = dt.getHours();
+      var n = dt.getMinutes();
+
+      $("#start").click(function () {
+        setInterval(function () {
+          var a = document.getElementById('1Subject').innerHTML;
+          var b = document.getElementById('2Subject').innerHTML;
+          var c = document.getElementById('3Subject').innerHTML;
+          var d = document.getElementById('4Subject').innerHTML;
+          var e = document.getElementById('5Subject').innerHTML;
+
+          if(time=="7" && n=="30"){var notificationNEW = new Notification(a +" , "+ b +" , " + c+" , " + d+" ,and " + e + "'s Assignments are left! ")}
+        },30000)
+      })
+
+    })
+
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <table class="writable" contenteditable="true">
+        <tr contenteditable="false">
+    <th >SN</th>
+    <th>Subject</th>
+    <th>Assignment</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td id="1Subject"></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td id="2Subject"></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td id="3Subject"></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td id="4Subject"></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td id="5Subject"></td>
+    <td></td>
+  </tr>
+      </table>
+      <div class="sidebar">
+        <button id="start">Start!</button>
+      </div>
+    </div>
+  </body>
+</html>
