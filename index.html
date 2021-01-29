@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
+<html lang="en" dir="ltr"><head>
     <meta charset="utf-8">
     <title>diaryREMIND</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
@@ -99,8 +97,8 @@
           var d = document.getElementById('4Subject').innerHTML;
           var e = document.getElementById('5Subject').innerHTML;
 
-          if(time=="18" && n=="30"){var notificationNEW = new Notification(a +" , "+ b +" , " + c+" , " + d+" ,and " + e + "'s Assignments are left! ")}
-        },30000)
+          if(time=="18" && n=="35"){var notificationNEW = new Notification(a +" , "+ b +" , " + c+" , " + d+" ,and " + e + "'s Assignments are left! ")}
+        },3000)
       })
 
     })
@@ -110,8 +108,8 @@
   <body>
     <div class="container">
       <table class="writable" contenteditable="true">
-        <tr contenteditable="false">
-    <th >SN</th>
+        <tbody><tr contenteditable="false">
+    <th>SN</th>
     <th>Subject</th>
     <th>Assignment</th>
   </tr>
@@ -137,13 +135,14 @@
   </tr>
   <tr>
     <td>5</td>
-    <td id="5Subject"></td>
+    <td id="5Subject"><br></td>
     <td></td>
   </tr>
-      </table>
+      </tbody></table>
       <div class="sidebar">
         <button id="start">Start!</button>
       </div>
     </div>
-  </body>
-</html>
+  
+
+</body></html>
